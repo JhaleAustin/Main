@@ -21,7 +21,7 @@
         
     $user_query_run = mysqli_query($con, $user_query);
     
-    
+    //pipindutin ko reset button ni jose mamayang 3am
     if($user_query_run)
     {
         redirect("Login.php", "User Added Successfully");
