@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-white border border-black">
   <div class="container-fluid">
-  <img src="image/logo.png" style="width:90px; height:90px;" class="img-fluid" alt="...">
+  <img src="image/logo.png" style="width:117px; height:90px;" class="img-fluid" alt="...">
     <a class="navbar-brand" href="#">Student Personnel Services UPHSL</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,7 +11,7 @@
           <a class="nav-link active" aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="#">Apply for entrance EXAM here</a>
         </li>
         <li class="nav-item">
           <a class="nav-link ">Link</a>
@@ -22,7 +22,7 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Action</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
@@ -30,7 +30,7 @@
         
       </ul>
       
-      <a href="Login.php" class="btn btn-primary text-white text-decoration-none btn-block">Register Here</a>
+      <a href="Login.php" class="btn btn-primary text-black text-decoration-none btn-block " >Register Here</a>
       
     </div>
   </div>
