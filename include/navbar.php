@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-primary border border-black">
+<nav class="navbar navbar-expand-lg bg-primary border-black ">
   <div class="container-fluid">
   <img src="image/logo.png" style="width:117px; height:90px;" class="img-fluid" alt="...">
     <a class="navbar-brand" href="#">Student Personnel Services UPHSL</a>
