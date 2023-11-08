@@ -1,6 +1,6 @@
 <?php include('include/header.php');?>
 <div class="text-center">
-    <h1 class = "mt-4">Welcome Student!</h1>
-    <h2 class= "m-4">register here to take a Entrance Exam NOW!</h2>
+    <h2 class= "m-4"></h2>
+    <img src="image/purps.jpg" style="width:900px; height:500px;" class="img-fluid">
 </div>
 <?php include('include/footer.php'); ?>
