@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg border border-black " style="background-color: #0504aa ">
+<nav class="navbar navbar-expand-lg bg-primary border border-black">
   <div class="container-fluid">
   <img src="image/SPS_Logo.png" style="width:135px; height:90px;" class="img-fluid" alt="...">
     <a class="navbar-brand text-white" href="#">Student Personnel Services UPHSL</a>
