@@ -30,7 +30,7 @@
         
       </ul>
       
-      <a href="Login.php" class="btn btn-primary text-black text-decoration-none btn-block " >Register Here</a>
+      <a href="login.php" class="btn btn-primary text-black text-decoration-none btn-block " >Log-in</a>
       
     </div>
   </div>

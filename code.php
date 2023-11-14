@@ -24,11 +24,11 @@
     //pipindutin ko reset button ni jose mamayang 3am
     if($user_query_run)
     {
-        redirect("Login.php", "User Added Successfully");
+        redirect("registration.php", "User Added Successfully");
     }
     else
     {
-        redirect("Login.php", "Something Went Wrong");
+        redirect("registration.php", "Something Went Wrong");
     }
      }
     
