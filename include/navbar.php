@@ -1,8 +1,10 @@
 
+
+<div class= "navigationbar">
 <div class="div" style="background-color:#FFEF00">
   <img src="image/SPS_Logo.png" style="width:175px ; height:115px; " class="img-fluid rounded mx-auto d-block" alt="...">
-  <p class="navbar-brand text-black text-center fs-3" href="index.php">Student Personnel Services UPHSL</p>
-<div>
+  <p class="m-0 navbar-brand text-black text-center fs-3" href="index.php">Student Personnel Services UPHSL</p>
+</div>  
 <nav class="navbar navbar-expand-lg  text-center " style="background-color:#002366">
   <div class="container-fluid justify-content-center">
 
@@ -15,7 +17,7 @@
           <a class="nav-link active text-white" aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">Apply for entrance EXAM</a>
+          <a class="nav-link text-white" href="#">Apply for entrance EXAM </a>
         </li>
         <li class="nav-item ">
           <a class="nav-link text-white" href="#">About</a>
@@ -41,3 +43,5 @@
     </div>
   </div>
 </nav>
+</div>
+
