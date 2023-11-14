@@ -5,7 +5,7 @@
     object-fit: cover;
   }
 </style>
-<div class="container text-center bg-warning" style="margin-top: 60px; padding-left: 175px; padding-right: 175px;">
+<div class="container text-center " style="margin-top:10 px; padding-left: 10px; padding-right: 10px; background-color:#002366">
 <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
   <!-- Indicators/dots -->
@@ -18,13 +18,13 @@
   <!-- The slideshow/carousel -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="image/purps.jpg" alt="Los Angeles" class="d-block w-100 ">
+      <img src="image/purps.jpg" alt="#" class="d-block w-100 ">
     </div>
     <div class="carousel-item">
-      <img src="image/test1.jpg" alt="Chicago" class="d-block w-100 ">
+      <img src="image/test1.jpg" alt="#" class="d-block w-100 ">
     </div>
     <div class="carousel-item">
-      <img src="image/pic1.jpg" alt="New York" class="d-block w-100 ">
+      <img src="image/pic1.jpg" alt="#" class="d-block w-100 ">
     </div>
   </div>
   
