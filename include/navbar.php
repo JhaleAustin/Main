@@ -1,4 +1,17 @@
+<?php
+if (isset($_SESSION['login_user']) && !empty($_SESSION['login_user'])) {
+    $user = '<h1>Welcome ';
+    $user .= $login_session;
+    $user .=  '</h1>';
+}
+else{
+  $user ='<a href="login.php" class="btn btn-primary text-black text-decoration-none btn-block float-end fs-5">Log-in</a>';
 
+}
+
+
+
+?>
 
 <div class= "navigationbar">
 <div class="div" style="background-color:#FFEF00">
@@ -33,10 +46,11 @@
 
           </ul>
         </li>
-
+        <?php echo $user; ?>
+        <h2><a href="logout.php">Sign Out</a></h2>
       </ul>
 
-      <a href="login.php" class="btn btn-primary text-black text-decoration-none btn-block float-end fs-5">Log-in</a>
+      
 
 
 

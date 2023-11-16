@@ -1,4 +1,7 @@
-<?php include('include/header.php'); ?>
+<?php
+include('session.php');
+include('include/header.php');
+?>
 <style>
   .carousel-inner .carousel-item img {
     height: 550px;
@@ -26,16 +29,17 @@
     padding: 20px;
     text-align: center;
 
-    
+
 
   }
-  .icons{
+
+  .icons {
     display: flex;
     justify-content: center;
   }
 
   .flex1 {
-      min-height: 100px;
+    min-height: 100px;
   }
 
   .flex2 {
@@ -48,46 +52,49 @@
 
   .flex4 {
     min-height: 100px;
-    
+
   }
 </style>
-<div class="container text-center " style="margin-top:10 px; padding-left: 10px; padding-right: 10px; background-color:#002366; ">
-  <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
-    <!-- Indicators/dots -->
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+<div class="slideshow" style="background-color:#F5FEFD;padding-top: 10px; padding-bottom: 5px;">
+  <div class="container text-center " style="margin-top:10 px; padding-left: 10px; padding-right: 10px; background-color:#FFEF00;">
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+      <!-- Indicators/dots -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+      </div>
+
+      <!-- The slideshow/carousel -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="image/purps.jpg" alt="#" class="d-block" style="width:100%">
+        </div>
+        <div class="carousel-item">
+          <img src="image/test1.jpg" alt="#" class="d-block" style="width:100%">
+        </div>
+        <div class="carousel-item">
+          <img src="image/pic1.jpg" alt="#" class="d-block" style="width:100%">
+        </div>
+        <div class="carousel-item">
+          <img src="image/entranceexam.jpg" alt="#" class="d-block" style="width:100%">
+        </div>
+      </div>
+
+      <!-- Left and right controls/icons -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
     </div>
-
-    <!-- The slideshow/carousel -->
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="image/purps.jpg" alt="#" class="d-block" style="width:100%">
-      </div>
-      <div class="carousel-item">
-        <img src="image/test1.jpg" alt="#" class="d-block" style="width:100%">
-      </div>
-      <div class="carousel-item">
-        <img src="image/pic1.jpg" alt="#" class="d-block" style="width:100%">
-      </div>
-      <div class="carousel-item">
-        <img src="image/entranceexam.jpg" alt="#" class="d-block" style="width:100%">
-      </div>
-    </div>
-
-    <!-- Left and right controls/icons -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
   </div>
 </div>
-
+<!-- icons sa baba ng slide show -->
 <div class="icons">
   <div class="gallery flexbox-1">
     <a target="_blank" href="img_5terre.jpg">
@@ -101,7 +108,7 @@
       <img src="image/discip.png" alt="Forest" width="600" height="400" style="border-radius: 50%;">
     </a>
     <div class="desc">Discipline
-      
+
     </div>
   </div>
 
@@ -119,6 +126,8 @@
     <div class="desc">Diligence</div>
   </div>
 </div>
+
+
 
 
 <?php include('include/footer.php'); ?>

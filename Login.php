@@ -5,7 +5,7 @@
     <h1 class="text-center">Log in</h1>
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <form action="code.php" method="post" enctype="multipart/form-data">
+            <form action="codelogin.php" method="post" enctype="multipart/form-data">
                 <div class="m-3">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" class="form-control" name="email" required>
