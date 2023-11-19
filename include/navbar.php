@@ -1,11 +1,12 @@
 <?php
 if (isset($_SESSION['login_user']) && !empty($_SESSION['login_user'])) {
-    $user = '<h1>Welcome ';
+    $user = '<h1 class="wellcome text-white fs-5">Welcome ';
     $user .= $login_session;
     $user .=  '</h1>';
+    $user .= '<h2 class="user text-white fs-5"><a href="logout.php">Sign Out</a></h2>';
 }
 else{
-  $user ='<a href="login.php" class="btn btn-primary text-black text-decoration-none btn-block float-end fs-5">Log-in</a>';
+  $user ='<a href="login.php" class="btn  btn-primary text-black text-decoration-none btn-block float-end fs-5">Log-in</a>';
 
 }
 
@@ -47,7 +48,6 @@ else{
           </ul>
         </li>
         <?php echo $user; ?>
-        <h2><a href="logout.php">Sign Out</a></h2>
       </ul>
 
       

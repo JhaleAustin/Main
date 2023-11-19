@@ -6,11 +6,11 @@
 
         $user_check = $_SESSION['login_user'];
 
-        $ses_sql = mysqli_query($con,"select email from user where email = '$user_check' ");
+        $ses_sql = mysqli_query($con,"select * from user where email = '$user_check' ");
     
         $row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
     
-        $login_session = $row['email'];
+        $login_session = $row['fname'] . ' ' .  $row['lname'];
 
 
      }
