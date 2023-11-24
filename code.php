@@ -1,5 +1,5 @@
 <?php
-    
+    session_start();
     include('function/function.php');
     include('database/dbcon.php');
     
@@ -15,21 +15,43 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
     $phone = $_POST['phone'];
+    $cpassword = $_POST['cpassword'];
 
-    $user_query = "INSERT INTO user (fname, lname, mdname, gender, email, password, phone)
-        VALUES ('$fname', '$lname', '$mdname', '$gender', '$email', '$password', '$phone')";
-        
-    $user_query_run = mysqli_query($con, $user_query);
-    
-    //pipindutin ko reset button ni jose mamayang 3am
-    if($user_query_run)
+    //check email if already registered
+    $check_email_query = "SELECT email FROM user WHERE email='$email'";
+    $check_email_query_run = mysqli_query($con, $check_email_query);
+
+    if(mysqli_num_rows($check_email_query_run) > 0)
     {
-        redirect("registration.php", "User Added Successfully");
+        $_SESSION['message'] = "Email already exist";
+        header('Location: registration.php');
     }
     else
     {
-        redirect("registration.php", "Something Went Wrong");
+        if($password == $cpassword){
+            $user_query = "INSERT INTO user (fname, lname, mdname, gender, email, password, phone)
+            VALUES ('$fname', '$lname', '$mdname', '$gender', '$email', '$password', '$phone')";
+           $user_query_run = mysqli_query($con, $user_query);
+           
+           if($user_query_run)
+           {
+               $_SESSION['message'] = "Registerd Successfully";
+               header('location: index.php');
+           }
+           else
+           {
+               $_SESSION['message'] = "Something went wrong";
+               header('Location: registration.php');
+           }
+        }
+        else{
+            $_SESSION['message'] = "Password do not match";
+            header('Location: registration.php');
+    
+        }
     }
+
+    
      }
     
     
