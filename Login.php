@@ -1,4 +1,7 @@
-<?php include('include/header.php'); ?>
+<?php 
+include('session.php');
+include('include/header.php');
+?>
 
 
 <div class="container mt-5">

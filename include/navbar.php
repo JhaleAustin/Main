@@ -1,19 +1,3 @@
-<?php
-if (isset($_SESSION['login_user']) && !empty($_SESSION['login_user'])) {
-    $user = '<h1 class="wellcome text-white fs-5">Welcome ';
-    $user .= $login_session;
-    $user .=  '</h1>';
-    $user .= '<h2 class="user text-white fs-5"><a href="logout.php">Sign Out</a></h2>';
-}
-else{
-  $user ='<a href="login.php" class="btn  btn-primary text-black text-decoration-none btn-block float-end fs-5">Log-in</a>';
-
-}
-
-
-
-?>
-
 <div class= "navigationbar">
 <div class="div" style="background-color:#FFEF00">
   <img src="image/SPS_Logo.png" style="width:175px ; height:115px; " class="img-fluid rounded mx-auto d-block" alt="...">
@@ -36,18 +20,34 @@ else{
         <li class="nav-item ">
           <a class="nav-link text-white" href="#">About</a>
         </li>
-
-        <li class="nav-item dropdown">
+        <?php
+        if(isset($_SESSION['auth']))
+        {
+          ?>
+          <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Admissions
+           <?= $login_session;?>
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Enrollment Requirements</a></li>
-            <li><a class="dropdown-item" href="#">Admission FAQs</a></li>
+            <li><a class="dropdown-item" href="#">profile</a></li>
+            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+            <li><a class="dropdown-item" href="#"> my Reference number</a></li>
 
           </ul>
         </li>
-        <?php echo $user; ?>
+
+          <?php
+        }
+        else
+        {
+          ?>
+         <a href="login.php" class="btn  btn-primary text-black text-decoration-none btn-block float-end fs-5">Log-in</a>;
+         <?php
+        }
+        ?>
+
+        
+        
       </ul>
 
       
