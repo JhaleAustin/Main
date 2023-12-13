@@ -1,6 +1,7 @@
 <?php
     session_start();
     include('database/dbcon.php');
+    include('function/myfunction.php');
     
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -40,31 +41,34 @@
         $userfname = $row['fname'];
         $userlname = $row['lname'];
         $role_as = $row['role_as'];
+        $id = $row['id'];
 
         $_SESSION['login_user'] = [
             'email' => $username,
             'fname' => $userfname,
-            'lname' => $userlname
+            'lname' => $userlname,
+            'id' => $id
+
         ];
 
         $_SESSION['role_as'] = $role_as; 
         if($role_as == 1 )
         {
-        $_SESSION['message'] = "Welcome to dashboard";
-        header("location:admin/indexadmin.php");
+        redirect("admin/indexadmin.php","Welcome to dashboard" );
+        
         }
         else
         {
-            $_SESSION['message'] = "Logged in Successfully";
-        header("location:index.php");
+        redirect("index.php","Logged in Successfully" );
+            
         }
 
         
     }
     else
     {
-        $_SESSION['message'] = "Invalid Credentials";
-        header("location:Login.php");
+        redirect("Login.php","Invalid Credentials" );
+        
     }
 
 }

@@ -15,7 +15,7 @@
           <a class="nav-link active text-white" aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">Apply for entrance EXAM </a>
+          <a class="nav-link text-white" href="applyforexam.php">Apply for entrance EXAM </a>
         </li>
         <li class="nav-item ">
           <a class="nav-link text-white" href="#">About</a>

@@ -1,6 +1,14 @@
 <?php
 session_start();
 include('include/header.php');
+
+if(isset($_SESSION['auth']))
+{
+    $_SESSION['message'] = "You are already logged in";
+    header('Location: index.php');
+    exit();
+}
+
 ?>
 <div class="container mt-5">
     <h1 class="text-center">Registration</h1>
