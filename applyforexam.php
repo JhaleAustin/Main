@@ -1,10 +1,28 @@
 <?php
+
 include('session.php');
-include('include/header.php');
 include('database/dbcon.php');
 include('../Main/function/myfunction.php');
+include('include/header.php');
 
 //INSERT INTO user_apply (id, ref_no) VALUES ('1', 'qwerty')
+?>
+<?php
+if(isset($_SESSION['auth']))
+{
+    // if($_SESSION['role_as'] == 0)
+    // {
+    //     redirect("../index.php","you are not authorized to access this page" );
+       
+    // }
+
+}
+else
+{
+    redirect("Login.php","Login to continue" );
+
+}
+
 ?>
 <div class="container mt-5">
     <h1 class="text-center">Entrance Exam form</h1>
@@ -55,33 +73,11 @@ include('../Main/function/myfunction.php');
 
             <?php
             ?>
-
-
+            <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 Launch demo modal
             </button>
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            ...
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
-</div>
 
-<?php include('include/footer.php'); ?>
+    <?php include('include/footer.php'); ?>
