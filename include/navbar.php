@@ -1,11 +1,11 @@
 
 
 <div class= "navigationbar">
-<div class="div" style="background-color:#FFEF00">
+<div class="div" style="background-color:#FFEF00;font-family: 'Montserrat', sans-serif;">
   <img src="image/SPS_Logo.png" style="width:175px ; height:115px; " class="img-fluid rounded mx-auto d-block" alt="...">
   <p class="m-0 navbar-brand text-black text-center fs-3" href="index.php">Student Personnel Services UPHSL</p>
 </div>  
-<nav class="navbar navbar-expand-lg  text-center " style="background-color:#002366">
+<nav class="navbar navbar-expand-lg  text-center " style="background-color:#002366;font-family: 'Montserrat', sans-serif;">
   <div class="container-fluid justify-content-center">
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,7 +20,7 @@
           <a class="nav-link text-white" href="applyforexam.php">Apply for entrance EXAM </a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link text-white" href="#">About</a>
+          <a class="nav-link text-white" href="about.php">About</a>
         </li>
         <?php
         if(isset($_SESSION['auth']))
@@ -31,10 +31,9 @@
            <?= $login_session;?>
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">profile</a></li>
-            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+            <li><a class="dropdown-item" href="profile.php">profile</a></li>
             <li><a class="dropdown-item" href="#"> my Reference number</a></li>
-
+            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
           </ul>
         </li>
 

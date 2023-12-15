@@ -54,9 +54,15 @@ include('include/header.php');
     min-height: 100px;
 
   }
+
+  #easier {
+    height: 300px;
+    background-color: #FFFFFF;
+    font: italic 15px monospace;
+  }
 </style>
 
-<div class="slideshow" style="background-color:#F5FEFD;padding-top: 10px; padding-bottom: 5px;">
+<div class="slideshow" style="background-color:#F5FEFD;padding-top: 10px; padding-bottom: 5px;background-color:#FEFCF8">
   <div class="container text-center " style="margin-top:10 px; padding-left: 10px; padding-right: 10px; background-color:#FFEF00;">
     <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
@@ -95,14 +101,13 @@ include('include/header.php');
   </div>
 </div>
 <!-- icons sa baba ng slide show -->
-<div class="icons">
-  <div class="gallery flexbox-1">
+<div class="icons" style="text-align: center;font-size: 20px;font-family: 'Montserrat', sans-serif;">
+  <div class="gallery flexbox-1" >
     <a target="_blank" href="img_5terre.jpg">
       <img src="image/motiv.png" alt="Cinque Terre" width="600" height="400" style="border-radius: 50%;">
     </a>
     <div class="desc">Motivation</div>
   </div>
-
   <div class="gallery flexbox-2">
     <a target="_blank" href="img_forest.jpg">
       <img src="image/discip.png" alt="Forest" width="600" height="400" style="border-radius: 50%;">
@@ -126,7 +131,16 @@ include('include/header.php');
     <div class="desc">Diligence</div>
   </div>
 </div>
-
+<div class="paymenteasy" style="background-color:#f5f5dc; text-align: center; color: #002D62;font-family: 'Montserrat', sans-serif;">
+  <div class="easier" style="padding-top: 35px;padding-bottom: 35px">
+    <h2>Entrance Exam Payments made easier with Just paying at the Cashier for fast transaction and fast verification</h2>
+  </div>
+  <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+  <div class="isntuction">
+    <h4>Log in to your Account or if you dont have an account yet you can register!</h4>
+    <h4>Just go to the Log in button and click the link there to register!</h4>
+  </div>
+</div>
 
 
 

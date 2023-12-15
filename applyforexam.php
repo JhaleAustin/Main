@@ -8,19 +8,10 @@ include('include/header.php');
 //INSERT INTO user_apply (id, ref_no) VALUES ('1', 'qwerty')
 ?>
 <?php
-if(isset($_SESSION['auth']))
-{
-    // if($_SESSION['role_as'] == 0)
-    // {
-    //     redirect("../index.php","you are not authorized to access this page" );
-       
-    // }
+if (isset($_SESSION['auth'])) {
 
-}
-else
-{
-    redirect("Login.php","Login to continue" );
-
+} else {
+    redirect("Login.php", "Login to continue");
 }
 
 ?>
@@ -47,36 +38,32 @@ else
             ?>
 
             <div class="m-3">
-                <label for="name" class="form-label"></label>
+                <label for="name" class="form-label">First Name: </label>
                 <input type="text" class="form-control" value="<?= $user['fname'] ?>" name="firstName" disabled required>
             </div>
             <div class="m-3">
-                <label for="name" class="form-label"></label>
+                <label for="name" class="form-label">Last Name: </label>
                 <input type="text" class="form-control" value="<?= $user['lname'] ?>" name="lastName" disabled required>
             </div>
             <div class="m-3">
-                <label for="name" class="form-label"></label>
+                <label for="name" class="form-label">Middle Name: </label>
                 <input type="text" class="form-control" value="<?= $user['mdname'] ?>" name="middleName" disabled required>
             </div>
             <div class="m-3">
-                <label for="name" class="form-label"></label>
+                <label for="name" class="form-label">Gender: </label>
                 <input type="text" class="form-control" value="<?= $user['gender'] ?>" name="gender" disabled required>
             </div>
             <div class="m-3">
-                <label for="email" class="form-label"></label>
+                <label for="email" class="form-label">Email: </label>
                 <input type="email" class="form-control" value="<?= $user['email'] ?>" name="email" disabled required>
             </div>
             <div class="m-3">
-                <label for="phone" class="form-label"></label>
+                <label for="phone" class="form-label">Phone Number: </label>
                 <input type="number" class="form-control" value="<?= $user['phone'] ?>" name="phone" disabled required>
             </div>
 
-            <?php
-            ?>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Launch demo modal
-            </button>
+
+            <a href="succespage.php" class="btn  btn-primary text-black text-decoration-none btn-block float-left fs-5">Apply</a>
         </div>
     </div>
 
