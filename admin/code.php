@@ -16,12 +16,12 @@ if(isset($_POST['submit']))
 
     $image = $_FILES['image']['name'];
 
-    $path = "../uploads";
+    $path = "../Main/uploads";
 
     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
     $filename = time(). '.'.$image_ext;
 
-    $user_query = "INSERT * INTO user_apply (fname, lname, mdname, gender, email,  phone, image)
+    $user_query = "INSERT  INTO user_apply (fname, lname, mdname, gender, email,  phone, image)
     VALUES ('$fname', '$lname', '$mdname', '$gender', '$email', '$phone', '$image'";
 
     $user_query_run = mysqli_query($con, $user_query);
