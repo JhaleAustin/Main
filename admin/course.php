@@ -1,9 +1,7 @@
 <?php
 include('includes/headeradmin.php');
-include('../middleware/adminmiddleware.php'); 
-
-
-include('../database/dbcon.php');  
+include('../middleware/adminmiddleware.php');
+include('../database/dbcon.php'); 
 if ($_SERVER["REQUEST_METHOD"] == "POST") { 
  
     $course_name = $_POST["course_name"];
@@ -70,3 +68,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php
 include('includes/footer.php');
 ?>
+

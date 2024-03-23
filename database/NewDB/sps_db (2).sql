@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2024 at 07:03 PM
+-- Generation Time: Mar 23, 2024 at 06:41 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -68,9 +68,9 @@ CREATE TABLE `course` (
 --
 
 INSERT INTO `course` (`id`, `course_name`) VALUES
-(1, 'cxcx'),
-(2, 'cxcx'),
-(3, 'cxcx');
+(5, 'cxcxxc'),
+(6, 'czzxcxxc'),
+(7, 'zccccxxc');
 
 -- --------------------------------------------------------
 
@@ -86,13 +86,6 @@ CREATE TABLE `lecture` (
   `course_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
---
--- Dumping data for table `lecture`
---
-
-INSERT INTO `lecture` (`id`, `NIP`, `lecture_name`, `lecture_email`, `course_id`) VALUES
-(1, 2, 'vcc', 'vcvcv@sdsdd.com', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -106,15 +99,6 @@ CREATE TABLE `question` (
   `question_weight` int(255) NOT NULL,
   `answer_key` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `question`
---
-
-INSERT INTO `question` (`id`, `lecturer_id`, `question`, `question_weight`, `answer_key`) VALUES
-(1, 1, ' xzxxzzxx', 112, 'C'),
-(2, 1, ' xcxc', 122, 'C'),
-(3, 1, ' cxcx', 22, 'B');
 
 -- --------------------------------------------------------
 
@@ -213,13 +197,13 @@ ALTER TABLE `choices`
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `lecture`
 --
 ALTER TABLE `lecture`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `question`

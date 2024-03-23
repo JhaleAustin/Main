@@ -25,7 +25,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="question.php">
+          <a class="nav-link text-white " href="list_question.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -33,7 +33,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="lecture.php">
+          <a class="nav-link text-white " href="list_lecture.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -41,11 +41,19 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="course.php">
+          <a class="nav-link text-white " href="list_course.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
             <span class="nav-link-text ms-1">Course</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white " href="add_exam.php">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">table_view</i>
+            </div>
+            <span class="nav-link-text ms-1">Exam</span>
           </a>
         </li>
       </ul>
