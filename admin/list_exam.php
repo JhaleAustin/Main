@@ -81,7 +81,7 @@
                         <td><?php echo $row['course']; ?></td>
                         <td><?php echo $row['date']; ?></td>
                         <td><?php echo $row['time']; ?></td>
-                        <td><a href="examDetails.php?id=<?php echo $row['id']; ?>">See More</a></td>
+                        <td><a href="list_examDetials.php?id=<?php echo $row['id']; ?>">See More</a></td>
                    
                     </tr>
                 <?php } ?>
