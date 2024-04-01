@@ -11,64 +11,14 @@ if (isset($_SESSION['auth'])) {
 ?>
 
 <style>
-    .college {
+.backbutton{
+    background-color: #ddd;
+  color: black;
+}
 
-        background-color: #FFEF00;
-        border: none;
-        color: black;
-        padding: 15px 40px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-
-    }
-
-    .shs {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #FFEF00;
-        border: none;
-        color: black;
-        padding: 15px 40px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-
-    }
-
-    .register-border {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-style: solid;
-        height: 200px;
-        width: 50%;
-    }
-
-    .mainbody {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
 </style>
-<div class="mainbody">
-    <div class="register-border">
-        <a href="collegeregister.php">
-            <button type="submit" name="college" class="college" >College</button>
-        </a>
-        <a href="shsregister.php">
-            <button type="submit" name="shs" class="shs" >Senior High School</button>
-        </a>
-    </div>
-</div>
-<!-- <div class="container mt-5">
+<button class="backbutton" onclick="history.go(-1);">&laquo; Previous </button>
+<div class="container mt-5">
     <h1 class="text-center">Registration</h1>
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -132,6 +82,6 @@ if (isset($_SESSION['auth'])) {
             </form>
         </div>
     </div>
-</div> -->
+</div>
 <?php include('include/footer.php');
 $_SESSION['message'] = ""; ?>
