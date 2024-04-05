@@ -161,9 +161,7 @@ Bachelor of Science in Electronics Engineering
                 <input type="phone" name="phone" placeholder="phone"><br>
                 <input type="hidden" name="reference_number" value="<?php echo $referenceNumber; ?>"> <!-- Hidden field for reference number -->
                 <input type="submit" class="btn btn-primary" value="Submit">
-                <input type="hidden" name="type">
-<input type="hidden" name="selectedOption">
-  </form>
+            </form>
 
             <div id="referenceForm" class="mt-3 text-center" style="display: none;">
                 <p style="color: blue;">Your reference number: <strong><?php echo $referenceNumber; ?></strong></p>
@@ -181,62 +179,56 @@ Bachelor of Science in Electronics Engineering
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
 <script>
-   $(document).ready(function () {
-    $('#shsBtn').click(function () {
-        $('#shsDropdown').toggle();
-        $('#collegeDropdown').hide();
-    });
 
-    $('#collegeBtn').click(function () {
-        $('#collegeDropdown').toggle();
-        $('#shsDropdown').hide();
-    });
-
-    $('.dropdown-item').click(function () {
-        var selectedOption = $(this).text(); // Kunin ang teksto ng piniling item sa dropdown
-        $('[name="selectedOption"]').val(selectedOption); // Itakda ang piniling opsyon sa isang nakatagong patlang
-        $('#selectedOptionDisplay').text(selectedOption); // Opsyonal: Ipakita ang piniling opsyon para sa sanggunian ng gumagamit
-        var type = $(this).data('type'); // Kunin ang uri (SHS o kolehiyo)
-        $('[name="type"]').val(type); // Itakda ang uri sa isang nakatagong patlang
-        showForm(type); // Ipakita ang angkop na form base sa uri (SHS o kolehiyo)
-    });
-
-    $('#applicationForm').submit(function (e) {
-        e.preventDefault();
-        var formData = $(this).serialize(); // Seriyalisahin ang mga datos ng form
-        var selectedOption = $('[name="selectedOption"]').val(); // Kunin ang piniling opsyon
-        formData += '&selectedOption=' + encodeURIComponent(selectedOption); // Idagdag ang piniling opsyon sa form data
-        $.ajax({
-            type: 'POST',
-            url: 'save_data.php', // URL ng script na PHP
-            data: formData,
-            success: function (response) {
-                    $('#applicationForm').hide();
-                    $('#referenceForm').show();
-                    $('#notification').html('<div class="alert alert-success" role="alert">Data saved successfully</div>');
-                    setTimeout(function(){
-                        location.reload(); // Reload the page after 3 seconds
-                    }, 3000);
-                    console.log(response);
-                },
-                error: function (error) {
-                    console.error('Error:', error);
-                    $('#notification').html('<div class="alert alert-danger" role="alert">Error saving data</div>');
-                }
+var type;
+    $(document).ready(function () {
+        $('#shsBtn').click(function () {
+            $('#shsDropdown').toggle();
+            $('#collegeDropdown').hide();
         });
-    });
 
-    function showForm(type) {
-        if (type === 'shs') {
-            $('#applicationForm').show();
-            $('#collegeDropdown').removeClass('show');
-        } else if (type === 'college') {
-            $('#applicationForm').show();
-            $('#shsDropdown').removeClass('show');
+        $('#collegeBtn').click(function () {
+            $('#collegeDropdown').toggle();
+            $('#shsDropdown').hide();
+        });
+
+        $('#applicationForm').submit(function (e) {
+            e.preventDefault();
+            $('#applicationForm').hide();
+            $('#referenceForm').show();
+        });
+
+        $('#submitReference').click(function () {
+    var formData = $('#applicationForm').serialize(); // Serialize form data
+   
+    formData ='&type=' + type + '&option=' + selectedOption;
+
+    $.ajax({
+        type: "POST",
+        url: "save_data.php", // Your PHP script to handle database insertion
+        data: formData,
+        success: function (response) {
+            alert(response); // Show success/error message from PHP script
         }
-    }
+    });
 });
 
+
+        $('.dropdown-item').click(function () {
+            var type = $(this).data('type');
+            showForm(type);
+        });
+
+        function showForm(type) {
+            if (type === 'shs') {
+                $('#applicationForm').show();
+                $('#collegeDropdown').removeClass('show');
+            } else if (type === 'college') {
+                $('#applicationForm').show();
+                $('#shsDropdown').removeClass('show');
+            }
+        }
+    });
 </script>
 
 <?php include('include/footer.php'); ?>

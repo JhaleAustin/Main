@@ -211,18 +211,13 @@ Bachelor of Science in Electronics Engineering
             url: 'save_data.php', // URL ng script na PHP
             data: formData,
             success: function (response) {
-                    $('#applicationForm').hide();
-                    $('#referenceForm').show();
-                    $('#notification').html('<div class="alert alert-success" role="alert">Data saved successfully</div>');
-                    setTimeout(function(){
-                        location.reload(); // Reload the page after 3 seconds
-                    }, 3000);
-                    console.log(response);
-                },
-                error: function (error) {
-                    console.error('Error:', error);
-                    $('#notification').html('<div class="alert alert-danger" role="alert">Error saving data</div>');
-                }
+                $('#applicationForm').hide();
+                $('#referenceForm').show();
+                console.log(response); // Itala ang tugon ng server
+            },
+            error: function (error) {
+                console.error('Error:', error);
+            }
         });
     });
 
