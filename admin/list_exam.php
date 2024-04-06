@@ -1,6 +1,28 @@
 <?php include('includes/headeradmin.php'); ?>
 <?php include('../middleware/adminmiddleware.php'); ?>
 <?php include('../database/dbcon.php'); ?>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+    $exam_name = $_POST['exam_name'];
+    $course = $_POST['course_id'];
+    $date = $_POST['date'];
+    $time = $_POST['time'];
+  $numQ = $_POST['numQ'];
+    $exam_code = $_POST['exam_code'];
+    
+  
+    $sql = "INSERT INTO exams (exam_name, course, date, time,ExamCode,noQuestion) VALUES ('$exam_name', '$course', '$date', '$time',' $numQ ','$exam_code')";
+    if(mysqli_query($con, $sql)) {
+        echo json_encode(array('status' => 'success'));
+    } else {
+        echo json_encode(array('status' => 'error', 'message' => mysqli_error($con)));
+    }
+}
+     
+    
+    
+    ?>
+
 
 <div id="addExamFormContainer" style="display: none;">
  
@@ -12,15 +34,36 @@
                     <h3>User Profile</h3>
                 </div>
                 <div class="card-body">
-                   <form id="addExamForm">
+                   <form  action="list_exam.php" method="post">
         <div class="form-group">
             <label for="exam_name">Exam Name</label>
             <input type="text" class="form-control" id="exam_name" name="exam_name" required>
         </div>
+
         <div class="form-group">
-            <label for="course">Course</label>
-            <input type="text" class="form-control" id="course" name="course" required>
-        </div>
+                                <label for="numQ">No. of Question</label>
+                                <input type="text" class="form-control" id="numQ" name="numQ" required>
+                            </div>
+                            <div class="form-group">
+                        <label for="course_id">Course</label>
+                        <select name="course_id" id="course_id" class="form-control select2" style="width: 100%!important">
+                            <option value="" disabled selected>Choose Course</option>
+                            <?php 
+                            $sql = "SELECT * FROM course";
+                            $result = mysqli_query($con, $sql);  
+                            if ($result && mysqli_num_rows($result) > 0) {
+                                  while ($row = mysqli_fetch_assoc($result)) {
+                                     echo '<option value="' . $row['id'] . '">' . $row['course_name'] . '</option>';
+                                }
+                                  mysqli_free_result($result);
+                            } else {
+                                 echo '<option value="">No courses available</option>';
+                            }
+                            ?>
+                        </select>
+                        <small class="help-block"></small>
+                    </div>
+
         <div class="form-group">
             <label for="date">Date</label>
             <input type="date" class="form-control" id="date" name="date" required>
@@ -29,6 +72,11 @@
             <label for="time">Time</label>
             <input type="time" class="form-control" id="time" name="time" required>
         </div>
+
+        <div class="form-group">
+                                <label for="exam_code">Exam Code</label>
+                                <input type="text" class="form-control" id="exam_code" name="exam_code" required>
+                            </div>
         <button type="submit" class="btn btn-primary">Add Exam</button>
         <button type="button" class="btn btn-default" onclick="closeAddExamForm()">Close</button>
     </form>
@@ -78,8 +126,20 @@
                         <td><input type="checkbox" class="checkbox-item" data-id="<?php echo $row['id']; ?>"></td>
                         <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['exam_name']; ?></td>
-                        <td><?php echo $row['course']; ?></td>
-                        <td><?php echo $row['date']; ?></td>
+                        <td>
+    <?php
+    $course_id = $row['course']; // Assuming 'course' field in $row contains the course ID
+    $course_query = "SELECT course_name FROM course WHERE id = $course_id";
+    $course_result = mysqli_query($con, $course_query);
+    if ($course_result && mysqli_num_rows($course_result) > 0) {
+        $course_row = mysqli_fetch_assoc($course_result);
+        echo $course_row['course_name'];
+    } else {
+        echo "Course not found"; // Display a message if the course is not found or if there's an error
+    }
+    ?>
+</td>
+      <td><?php echo $row['date']; ?></td>
                         <td><?php echo $row['time']; ?></td>
                         <td><a href="list_examDetials.php?id=<?php echo $row['id']; ?>">See More</a></td>
                    

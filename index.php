@@ -28,9 +28,6 @@ include('include/header.php');
   div.desc {
     padding: 20px;
     text-align: center;
-
-
-
   }
 
   .icons {
@@ -52,7 +49,6 @@ include('include/header.php');
 
   .flex4 {
     min-height: 100px;
-
   }
 
   #easier {
@@ -61,6 +57,31 @@ include('include/header.php');
     font: italic 15px monospace;
   }
 </style>
+
+
+<div id="examModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Enter Reference Number</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="examForm" method="post" action="validate_exam.php"> <!-- Modified form action -->
+          <div class="form-group">
+            <label for="referenceNumber">Reference Number:</label>
+            <input type="text" class="form-control" id="referenceNumber" name="referenceNumber">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button> <!-- Submit button added -->
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="slideshow" style="background-color:#F5FEFD;padding-top: 10px; padding-bottom: 5px;background-color:#FEFCF8">
   <div class="container text-center " style="margin-top:10 px; padding-left: 10px; padding-right: 10px; background-color:#FFEF00;">
@@ -100,9 +121,15 @@ include('include/header.php');
     </div>
   </div>
 </div>
+
+<!-- Button to trigger modal -->
+<div class="text-center">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#examModal">Take Exam</button>
+</div>
+
 <!-- icons sa baba ng slide show -->
 <div class="icons" style="text-align: center;font-size: 20px;font-family: 'Montserrat', sans-serif;">
-  <div class="gallery flexbox-1" >
+  <div class="gallery flexbox-1">
     <a target="_blank" href="img_5terre.jpg">
       <img src="image/motiv.png" alt="Cinque Terre" width="600" height="400" style="border-radius: 50%;">
     </a>
@@ -131,6 +158,7 @@ include('include/header.php');
     <div class="desc">Diligence</div>
   </div>
 </div>
+
 <div class="paymenteasy" style="background-color:#f5f5dc; text-align: center; color: #002D62;font-family: 'Montserrat', sans-serif;">
   <div class="easier" style="padding-top: 35px;padding-bottom: 35px">
     <h2>Entrance Exam Payments made easier with Just paying at the Cashier for fast transaction and fast verification</h2>
@@ -141,7 +169,45 @@ include('include/header.php');
     <h4>Just go to the Log in button and click the link there to register!</h4>
   </div>
 </div>
+<!-- Bootstrap CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<!-- Popper.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  function submitExam() {
+    // Retrieve the reference number entered by the user
+    var referenceNumber = document.getElementById('referenceNumber').value;
+    
+    // Perform AJAX request to validate the reference number
+    $.ajax({
+      url: 'validate_exam.php',
+      type: 'POST',
+      data: { referenceNumber: referenceNumber },
+      success: function(response) {
+        // Handle the response from the server
+        if(response.trim() === "Reference number is valid!") {
+          // If validation is successful, redirect to the exam page
+          window.location.href = "exam.php";
+        } else {
+          // If validation fails, display the response message
+          alert(response);
+        }
+      },
+      error: function(xhr, status, error) {
+        // Handle AJAX error
+        console.error(xhr.responseText);
+        alert('Error: ' + xhr.status);
+      }
+    });
+  }
+</script>
 
 <?php include('include/footer.php'); ?>

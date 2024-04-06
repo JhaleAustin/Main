@@ -4,14 +4,15 @@ include('../middleware/adminmiddleware.php');
 include('../database/dbcon.php'); 
  
 if ($_SERVER["REQUEST_METHOD"] == "POST") { 
-    $nip = $_POST['nip'];
     $lecture_name = $_POST['lecture_name'];
     $email = $_POST['email'];
     $course_id = $_POST['course_id'];
+    $numQ = $_POST['numQ'];
+    $exam_code = $_POST['exam_code'];
     
   
-          $sql = "INSERT INTO lecture (NIP , lecture_name , lecture_email , course_id) 
-          VALUES ('$nip','$lecture_name','$email','$course_id')";
+          $sql = "INSERT INTO lecture (NIP , lecture_name , lecture_email , course_id,ExamCode,noQuestion) 
+          VALUES ('$nip','$lecture_name','$email','$course_id', ' $numQ ','$exam_code')";
          $result = mysqli_query($con, $sql);
          if ($result) {
             redirect("../admin/course.php","Successfully Save" );

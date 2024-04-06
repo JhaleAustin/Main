@@ -1,16 +1,32 @@
-<?php include('includes/headeradmin.php'); ?>
-<?php include('../middleware/adminmiddleware.php'); ?>
-<?php include('../database/dbcon.php'); ?>
+<?php 
+include('includes/headeradmin.php');
+include('../middleware/adminmiddleware.php');
+include('../database/dbcon.php');
+
+// Check if exam_id is provided in the URL
+$exam_id = isset($_GET['id']) ? mysqli_real_escape_string($con, $_GET['id']) : "";
+
+?>
+
 
 <?php
-// Check if exam_id is provided in the URL
-if (isset($_GET['id'])) {
-    $exam_id = mysqli_real_escape_string($con, $_GET['id']);
+if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+    $question_id = $_POST['question_id'];
+    $id = $_POST['id'];
+      
+  
+    $sql = "INSERT INTO examquestion (question, exam_id) VALUES ('$question_id', '$id')";
+    if(mysqli_query($con, $sql)) {
+        // If insertion is successful, redirect back to the previous page with a reload
+        echo '<script>window.history.go(-1);location.reload();</script>';
+    } else {
+        echo json_encode(array('status' => 'error', 'message' => mysqli_error($con)));
+    }
 }
 ?>
 
 <div id="addExamFormContainer" style="display: none;">
-    <div class="container">
+  <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <div class="card">
@@ -18,42 +34,20 @@ if (isset($_GET['id'])) {
                         <h3>Exam Details</h3>
                     </div>
                     <div class="card-body">
-                        <form id="addExamForm">
+                        <form  action="list_examDetials.php" method="post">
                             <input type="number" value ="<?php echo $exam_id ?>" class="form-control" id="id" name="id" hidden>
+                         
+                        
                             <div class="form-group">
-                                <label for="exam_name">Exam Name</label>
-                                <input type="text" class="form-control" id="exam_name" name="exam_name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="numQ">No. of Question</label>
-                                <input type="text" class="form-control" id="numQ" name="numQ" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="start_date">Start Exam Date</label>
-                                <input type="date" class="form-control" id="start_date" name="start_date" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="end_date">End Exam Date</label>
-                                <input type="date" class="form-control" id="end_date" name="end_date" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="time">Time</label>
-                                <input type="time" class="form-control" id="time" name="time" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="exam_code">Exam Code</label>
-                                <input type="text" class="form-control" id="exam_code" name="exam_code" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="course_id">Course</label>
-                                <select name="course_id" id="course_id" class="form-control select2" style="width: 100%!important">
-                                    <option value="" disabled selected>Choose Course</option>
+                                <label for="course_id">Question</label>
+                                <select name="question_id" id="question_id" class="form-control select2" style="width: 100%!important">
+                                    <option value="" disabled selected>Choose question</option>
                                     <?php 
-                                    $sql = "SELECT * FROM course";
+                                    $sql = "SELECT * FROM question";
                                     $result = mysqli_query($con, $sql);  
                                     if ($result && mysqli_num_rows($result) > 0) {
                                         while ($row = mysqli_fetch_assoc($result)) {
-                                            echo '<option value="' . $row['id'] . '">' . $row['course_name'] . '</option>';
+                                            echo '<option value="' . $row['id'] . '">' . $row['question'] . '</option>';
                                         }
                                         mysqli_free_result($result);
                                     } else {
@@ -95,31 +89,21 @@ if (isset($_GET['id'])) {
                 <tr>
                     <th><input type="checkbox" id="select-all-checkbox"></th>
                     <th>#</th>
-                    <th>Exam Name</th>
-                    <th>No. of Question</th>
-                    <th>Start of Exam</th>
-                    <th>End of Exam</th>
-                    <th>Time</th>
-                    <th>Exam Pass Code</th>
-                    <th>Course Strand</th>
-                </tr>
+                    <th>Question</th>
+                 </tr>
             </thead>
             <tbody>
                 <?php 
-                $sql = "SELECT * FROM exams";
+                $sql = "SELECT * FROM examquestion where exam_id = ".$exam_id ;
                 $result = mysqli_query($con, $sql);
                 while ($row = mysqli_fetch_assoc($result)) { 
                 ?>
-                    <!-- <tr>
+                    <tr>
                         <td><input type="checkbox" class="checkbox-item" data-id="<?php echo $row['id']; ?>"></td>
                         <td><?php echo $row['id']; ?></td>
-                        <td><?php echo $row['exam_name']; ?></td>
-                        <td><?php echo $row['course']; ?></td>
-                        <td><?php echo $row['date']; ?></td>
-                        <td><?php echo $row['time']; ?></td>
-                        <td><a href="list_examDetials.php?id=<?php echo $row['id']; ?>">See More</a></td>
+                        <td><?php echo $row['question']; ?></td>
                    
-                    </tr> -->
+                    </tr>
                 <?php } ?>
             </tbody>
         </table>
@@ -128,6 +112,7 @@ if (isset($_GET['id'])) {
 
 <?php include('includes/footer.php'); ?>
  
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script>
